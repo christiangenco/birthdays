@@ -15,7 +15,8 @@ const distanceOfTimeInWords = date => {
 };
 
 export const App = props => {
-  const [birthday, setBirthday] = useState(parse("1991-09-01"));
+  const [birthdayText, setBirthdayText] = useState("1991-09-01");
+  const birthday = parse(birthdayText);
 
   const interestingDates = getInterestingDates(birthday);
 
@@ -32,9 +33,10 @@ export const App = props => {
         I was born on{" "}
         <input
           type="date"
-          value={format(birthday, "YYYY-MM-DD")}
-          onChange={e => setBirthday(parse(e.target.value))}
+          value={birthdayText}
+          onChange={e => setBirthdayText(e.target.value)}
           className="italic shadow"
+          placeholder="1991-09-23"
         />
       </p>
 
